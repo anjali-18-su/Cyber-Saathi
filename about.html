@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="locale-base" content="locales/" />
+
+  <title>About – Cyber Saathi</title>
+  <meta name="description"
+    content="Learn about Cyber Saathi — a student-developed cyber-awareness project that helps ordinary people stay safe online." />
+  <meta name="author" content="Cyber Saathi" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="About – Cyber Saathi" />
+  <meta property="og:description" content="A student-developed cyber-awareness project designed to make online safety easier to understand for everyone." />
+  <meta property="og:locale"      content="en_IN" />
+
+  <meta name="theme-color" content="#1a6b8a" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ARIA live regions -->
+  <div id="lang-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+
+        <a href="index.html" class="navbar__brand" aria-label="Cyber Saathi — go to homepage">
+          <div class="navbar__logo" aria-hidden="true">CS</div>
+          <div>
+            <div class="navbar__site-name" data-i18n="site_name">Cyber Saathi</div>
+            <div class="navbar__tagline" data-i18n="site_tagline">Stop. Think. Verify. Report.</div>
+          </div>
+        </a>
+
+        <nav class="navbar__nav" aria-label="Main navigation">
+          <ul class="navbar__nav-list" role="list">
+            <li><a href="index.html"     class="navbar__nav-link" data-i18n="nav_home">Home</a></li>
+            <li><a href="scenarios.html" class="navbar__nav-link" data-i18n="nav_scenarios">Scenarios</a></li>
+            <li><a href="resources.html" class="navbar__nav-link" data-i18n="nav_resources">Resources</a></li>
+            <li><a href="quiz.html"      class="navbar__nav-link" data-i18n="nav_quiz">Self-Check</a></li>
+            <li><a href="about.html"     class="navbar__nav-link" aria-current="page" data-i18n="nav_about">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar__right">
+          <div class="lang-switcher" role="group" aria-label="Choose language">
+            <button class="lang-btn" data-lang="en" aria-pressed="true"  type="button" data-i18n="lang_en">English</button>
+            <button class="lang-btn" data-lang="mr" aria-pressed="false" type="button" data-i18n="lang_mr">मराठी</button>
+            <button class="lang-btn" data-lang="hi" aria-pressed="false" type="button" data-i18n="lang_hi">हिंदी</button>
+          </div>
+
+          <button class="navbar__hamburger"
+                  id="nav-hamburger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="nav-mobile-menu"
+                  data-i18n-aria="nav_menu_label">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="nav_menu_label">Open menu</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <nav id="nav-mobile-menu" class="navbar__mobile-menu" aria-label="Mobile navigation">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li><a href="index.html"     class="navbar__mobile-nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="scenarios.html" class="navbar__mobile-nav-link" data-i18n="nav_scenarios">Scenarios</a></li>
+        <li><a href="resources.html" class="navbar__mobile-nav-link" data-i18n="nav_resources">Resources</a></li>
+        <li><a href="quiz.html"      class="navbar__mobile-nav-link" data-i18n="nav_quiz">Self-Check</a></li>
+        <li><a href="about.html"     class="navbar__mobile-nav-link" aria-current="page" data-i18n="nav_about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main id="main-content">
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <div class="about-hero">
+      <div class="container">
+        <div class="about-hero__inner">
+          <div class="about-hero__icon" aria-hidden="true">🛡️</div>
+          <div>
+            <h1 data-i18n="about_hero_heading">About Cyber Saathi</h1>
+            <p class="about-hero__desc" data-i18n="about_hero_desc">
+              A student-developed cyber-awareness project designed to make online
+              safety easier to understand for everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── SECTION 1 · WHAT CYBER SAATHI HELPS WITH ─────── -->
+    <section class="about-section" aria-labelledby="about-what-heading">
+      <div class="container">
+        <div class="about-section__container">
+          <h2 id="about-what-heading" data-i18n="about_what_heading">
+            What Cyber Saathi Helps With
+          </h2>
+          <p data-i18n="about_what_body">
+            Cyber Saathi provides simple, practical, step-by-step guidance for people
+            who may not have technical knowledge. It helps users recognise and respond
+            to suspicious messages, phone calls, video calls, emails, malicious links,
+            UPI and payment scams, fake courier messages, social media impersonation
+            and AI-generated deepfake scams.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 2 · CREATOR ───────────────────────────── -->
+    <section class="about-section about-section--alt" aria-labelledby="about-creator-heading">
+      <div class="container">
+        <div class="about-section__container">
+          <h2 id="about-creator-heading" data-i18n="about_creator_heading">
+            About the Creator
+          </h2>
+
+          <div class="about-creator-card">
+            <!-- Avatar — initials on gradient circle, no photo required -->
+            <div class="about-creator-card__avatar" aria-hidden="true">👩‍💻</div>
+
+            <!-- Profile details as a semantic description list -->
+            <dl class="about-creator-card__info">
+              <dt class="about-creator-card__label" data-i18n="about_creator_name_label">Name</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_name">Anjali Bhaskar Kharat</dd>
+
+              <dt class="about-creator-card__label" data-i18n="about_creator_degree_label">Degree</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_degree">B.Tech</dd>
+
+              <dt class="about-creator-card__label" data-i18n="about_creator_branch_label">Branch</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_branch">Cyber Security</dd>
+
+              <dt class="about-creator-card__label" data-i18n="about_creator_year_label">Year</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_year">Second Year</dd>
+
+              <dt class="about-creator-card__label" data-i18n="about_creator_uni_label">University</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_uni">Sanjivani University</dd>
+
+              <dt class="about-creator-card__label" data-i18n="about_creator_campus_label">Campus</dt>
+              <dd class="about-creator-card__value" data-i18n="about_creator_campus">Kopargaon, Maharashtra, India</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 3 · MISSION ───────────────────────────── -->
+    <section class="about-section" aria-labelledby="about-mission-heading">
+      <div class="container">
+        <div class="about-section__container">
+          <h2 id="about-mission-heading" data-i18n="about_mission_heading">
+            Our Mission
+          </h2>
+          <p data-i18n="about_mission_body">
+            To make cyber safety easier to understand and accessible to people with
+            different levels of digital knowledge. Cyber Saathi aims to help users
+            recognise common online scams, take safer actions and find appropriate
+            reporting resources when they need help.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 4 · KEY FEATURES ─────────────────────── -->
+    <section class="about-section about-section--alt" aria-labelledby="about-features-heading">
+      <div class="container">
+        <div class="about-section__container">
+          <h2 id="about-features-heading" data-i18n="about_features_heading">
+            Key Features
+          </h2>
+
+          <ul class="about-features-grid" role="list">
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">📋</span>
+              <span data-i18n="about_feature_scenarios">
+                Practical scenario-based cyber safety guidance for 9 common scam types.
+              </span>
+            </li>
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">🌐</span>
+              <span data-i18n="about_feature_languages">
+                Full support for English, Hindi and Marathi.
+              </span>
+            </li>
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">🧠</span>
+              <span data-i18n="about_feature_quiz">
+                Interactive 10-question Cyber Safety Quiz with instant feedback.
+              </span>
+            </li>
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">🆘</span>
+              <span data-i18n="about_feature_resources">
+                Trusted cybercrime reporting resources including 1930 helpline and cybercrime.gov.in.
+              </span>
+            </li>
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">👥</span>
+              <span data-i18n="about_feature_simple">
+                Simple instructions designed for non-technical users.
+              </span>
+            </li>
+            <li class="about-feature">
+              <span class="about-feature__icon" aria-hidden="true">📱</span>
+              <span data-i18n="about_feature_responsive">
+                Responsive design — works on desktop and mobile devices.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 5 · TECHNOLOGY ────────────────────────── -->
+    <section class="about-section" aria-labelledby="about-tech-heading">
+      <div class="container">
+        <div class="about-section__container">
+          <h2 id="about-tech-heading" data-i18n="about_tech_heading">
+            Technology
+          </h2>
+          <p data-i18n="about_tech_body">
+            Cyber Saathi is built entirely with plain HTML, CSS and vanilla JavaScript —
+            no frameworks or external dependencies. Content is localised using JSON-based
+            language files, and language preference is saved using browser localStorage.
+            It can be deployed for free on any static hosting service.
+          </p>
+
+          <div class="about-tech-note" role="note">
+            <span class="about-tech-note__icon" aria-hidden="true">ℹ️</span>
+            <p data-i18n="about_tech_note">
+              This is a cyber-awareness and educational guidance website. It does not
+              automatically detect scams or connect to any external service.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── DISCLAIMER ─────────────────────────────────────── -->
+    <div class="about-disclaimer-strip">
+      <div class="container">
+        <p data-i18n="about_disclaimer">
+          The information on this website is for general awareness only.
+          Always verify with official government sources.
+        </p>
+      </div>
+    </div>
+
+  </main><!-- /main-content -->
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__brand-block">
+          <a href="index.html" class="footer__brand" aria-label="Cyber Saathi homepage">
+            <div class="footer__logo" aria-hidden="true">CS</div>
+            <span class="footer__site-name" data-i18n="site_name">Cyber Saathi</span>
+          </a>
+          <p class="footer__tagline" style="margin-top: var(--space-2);" data-i18n="footer_tagline">
+            Stop. Think. Verify. Report.
+          </p>
+          <p class="footer__text" style="margin-top: var(--space-3);" data-i18n="footer_note">
+            Cyber Saathi is a free, non-commercial public awareness resource.
+            We do not collect your data.
+          </p>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__disclaimer" data-i18n="footer_disclaimer">
+            This website provides general awareness information only.
+            Always verify details with official government sources.
+          </p>
+          <p class="footer__copyright" data-i18n="footer_copyright">
+            © 2024 Cyber Saathi
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts — i18n first, then shared nav behaviour -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Base path hint for i18n.js locale loader -->
+  <meta name="locale-base" content="locales/" />
+
+  <!-- Primary meta -->
+  <title>Cyber Saathi – Your Digital Safety Companion</title>
+  <meta name="description"
+    content="Cyber Saathi helps students, parents and senior citizens understand what to do when they receive suspicious messages, calls, emails or payment requests." />
+  <meta name="keywords"
+    content="cybersecurity awareness, cyber safety India, cyber fraud, UPI fraud, phishing, deepfake, scam help" />
+  <meta name="author" content="Cyber Saathi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (for sharing on WhatsApp, Facebook, etc.) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Cyber Saathi – Your Digital Safety Companion" />
+  <meta property="og:description" content="Free, plain-language cybersecurity guidance for ordinary people. English, हिंदी, मराठी." />
+  <meta property="og:url"         content="" /><!-- filled in at deploy time -->
+  <meta property="og:locale"      content="en_IN" />
+
+  <!-- Theme colour (browser chrome on Android) -->
+  <meta name="theme-color" content="#1a56a0" />
+
+  <!-- Favicon — simple SVG emoji shield fallback -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+
+  <!-- Preconnect for Google Fonts (perf) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheets — order matters: main → components → responsive -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ACCESSIBILITY: Skip navigation link
+       ===================================================== -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- =====================================================
+       ACCESSIBILITY: ARIA live regions (screen reader only)
+       ===================================================== -->
+  <!-- Announces language changes -->
+  <div id="lang-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+  <!-- Announces scenario card placeholder messages -->
+  <div id="card-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar__brand" aria-label="Cyber Saathi — go to homepage">
+          <div class="navbar__logo" aria-hidden="true">CS</div>
+          <div>
+            <div class="navbar__site-name" data-i18n="site_name">Cyber Saathi</div>
+            <div class="navbar__tagline" data-i18n="site_tagline">Stop. Think. Verify. Report.</div>
+          </div>
+        </a>
+
+        <!-- Desktop navigation -->
+        <nav class="navbar__nav" aria-label="Main navigation">
+          <ul class="navbar__nav-list" role="list">
+            <li>
+              <a href="index.html"
+                 class="navbar__nav-link"
+                 aria-current="page"
+                 data-i18n="nav_home">Home</a>
+            </li>
+            <li>
+              <a href="scenarios.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_scenarios">Scenarios</a>
+            </li>
+            <li>
+              <a href="resources.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_resources">Resources</a>
+            </li>
+            <li>
+              <a href="quiz.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_quiz">Self-Check</a>
+            </li>
+            <li>
+              <a href="about.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_about">About</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right: language switcher + hamburger -->
+        <div class="navbar__right">
+
+          <!-- Language switcher -->
+          <div class="lang-switcher" role="group" aria-label="Choose language">
+            <button class="lang-btn"
+                    data-lang="en"
+                    aria-pressed="true"
+                    type="button"
+                    data-i18n="lang_en">English</button>
+            <button class="lang-btn"
+                    data-lang="mr"
+                    aria-pressed="false"
+                    type="button"
+                    data-i18n="lang_mr">मराठी</button>
+            <button class="lang-btn"
+                    data-lang="hi"
+                    aria-pressed="false"
+                    type="button"
+                    data-i18n="lang_hi">हिंदी</button>
+          </div>
+
+          <!-- Hamburger (mobile only) -->
+          <button class="navbar__hamburger"
+                  id="nav-hamburger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="nav-mobile-menu"
+                  data-i18n-aria="nav_menu_label">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="nav_menu_label">Open menu</span>
+          </button>
+
+        </div><!-- /navbar__right -->
+
+      </div><!-- /navbar__inner -->
+    </div><!-- /container -->
+
+    <!-- Mobile menu drawer -->
+    <nav id="nav-mobile-menu"
+         class="navbar__mobile-menu"
+         aria-label="Mobile navigation">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li>
+          <a href="index.html"
+             class="navbar__mobile-nav-link"
+             aria-current="page"
+             data-i18n="nav_home">Home</a>
+        </li>
+        <li>
+          <a href="scenarios.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_scenarios">Scenarios</a>
+        </li>
+        <li>
+          <a href="resources.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_resources">Resources</a>
+        </li>
+        <li>
+          <a href="quiz.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_quiz">Self-Check</a>
+        </li>
+        <li>
+          <a href="about.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_about">About</a>
+        </li>
+      </ul>
+    </nav>
+
+  </header><!-- /navbar -->
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main id="main-content">
+
+    <!-- =================================================
+         HERO SECTION
+         ================================================= -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__inner">
+
+          <!-- Badge -->
+          <div class="hero__badge" aria-hidden="true">
+            <span class="hero__badge-dot"></span>
+            <span data-i18n="site_description">Your Digital Safety Companion</span>
+          </div>
+
+          <!-- Heading -->
+          <h1 class="hero__heading" id="hero-heading" data-i18n="hero_heading">
+            What happened?
+          </h1>
+
+          <!-- Subheading -->
+          <p class="hero__subheading" data-i18n="hero_subheading">
+            Did you receive a suspicious message, call, email, or payment request?
+          </p>
+
+          <!-- Body -->
+          <p class="hero__body" data-i18n="hero_body">
+            Cyber Saathi helps ordinary people — students, parents, and senior citizens —
+            understand what to do when something online feels wrong. Choose a situation
+            below to get clear, simple guidance.
+          </p>
+
+          <!-- CTA buttons -->
+          <div class="hero__actions">
+            <a href="#scenarios"
+               id="cta-browse"
+               class="btn btn--primary"
+               data-i18n="hero_cta_primary">Browse All Situations</a>
+            <a href="quiz.html"
+               class="btn btn--secondary"
+               data-i18n="hero_cta_secondary">Take the Self-Check Quiz</a>
+          </div>
+
+          <!-- Tagline strip -->
+          <div class="hero__tagline-strip" aria-hidden="true">
+            <span data-i18n="site_tagline">Stop. Think. Verify. Report.</span>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /hero -->
+
+
+    <!-- =================================================
+         SCENARIOS SECTION
+         ================================================= -->
+    <section class="scenarios-section section"
+             id="scenarios"
+             aria-labelledby="scenarios-heading">
+      <div class="container">
+
+        <!-- Section header -->
+        <header class="section-header">
+          <h2 class="section-header__heading"
+              id="scenarios-heading"
+              data-i18n="scenarios_section_heading">
+            Choose Your Situation
+          </h2>
+          <p class="section-header__subheading"
+             data-i18n="scenarios_section_subheading">
+            Tap the situation that matches what happened to you.
+          </p>
+        </header>
+
+        <!-- Grid of scenario cards -->
+        <div class="scenarios-grid" role="list">
+
+          <!-- 1. Suspicious Message -->
+          <a href="scenario-detail.html?id=message"
+             class="scenario-card"
+             role="listitem"
+             data-category="message"
+             aria-label="Suspicious Message — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">💬</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_message_title">
+                Suspicious Message
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_message_desc">
+                Received a strange WhatsApp, SMS, or chat message asking you to click a link or share details?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_message_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 2. Unknown Call -->
+          <a href="scenario-detail.html?id=call"
+             class="scenario-card"
+             role="listitem"
+             data-category="call"
+             aria-label="Unknown Call — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">📞</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_call_title">
+                Unknown Call
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_call_desc">
+                Got a call from someone claiming to be a bank, police, TRAI, or government officer?
+              </p>
+            </div>Implement the About section for my existing Cyber-Saathi website in the current workspace.
+
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_call_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 3. Video Call -->
+          <a href="scenario-detail.html?id=video"
+             class="scenario-card"
+             role="listitem"
+             data-category="video"
+             aria-label="Video Call — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">📹</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_video_title">
+                Video Call
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_video_desc">
+                Received a suspicious video call, or someone is threatening you using a recorded or fake video?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_video_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 4. Suspicious Email -->
+          <a href="scenario-detail.html?id=email"
+             class="scenario-card"
+             role="listitem"
+             data-category="email"
+             aria-label="Suspicious Email — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">📧</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_email_title">
+                Suspicious Email
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_email_desc">
+                Got an email asking you to verify your account, pay a fee, or click an urgent link?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_email_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 5. Suspicious Link -->
+          <a href="scenario-detail.html?id=link"
+             class="scenario-card"
+             role="listitem"
+             data-category="link"
+             aria-label="Suspicious Link — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">🔗</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_link_title">
+                Suspicious Link
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_link_desc">
+                Someone sent you a link and you are unsure if it is safe to open?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_link_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 6. UPI / Payment Fraud -->
+          <a href="scenario-detail.html?id=upi"
+             class="scenario-card"
+             role="listitem"
+             data-category="upi"
+             aria-label="UPI or Payment Fraud — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">💸</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_upi_title">
+                UPI / Payment Fraud
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_upi_desc">
+                Received a payment request, QR code, or an OTP-related call connected to your bank or UPI?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_upi_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 7. Courier / Parcel Scam -->
+          <a href="scenario-detail.html?id=courier"
+             class="scenario-card"
+             role="listitem"
+             data-category="courier"
+             aria-label="Courier or Parcel Scam — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">📦</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_courier_title">
+                Courier / Parcel Scam
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_courier_desc">
+                Got a message or call saying your parcel is held or contains illegal items?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_courier_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 8. Social Media Scam -->
+          <a href="scenario-detail.html?id=social"
+             class="scenario-card"
+             role="listitem"
+             data-category="social"
+             aria-label="Social Media Scam — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">📱</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_social_title">
+                Social Media Scam
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_social_desc">
+                Received a suspicious friend request, job offer, investment tip, or threatening message on social media?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_social_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+          <!-- 9. AI / Deepfake -->
+          <a href="scenario-detail.html?id=deepfake"
+             class="scenario-card"
+             role="listitem"
+             data-category="deepfake"
+             aria-label="AI or Deepfake — What to do">
+            <div class="scenario-card__icon-wrap" aria-hidden="true">🤖</div>
+            <div class="scenario-card__body">
+              <h3 class="scenario-card__title" data-i18n="scenario_deepfake_title">
+                AI / Deepfake
+              </h3>
+              <p class="scenario-card__desc" data-i18n="scenario_deepfake_desc">
+                Received a suspicious voice message, morphed image, or video that looks or sounds like someone you know?
+              </p>
+            </div>
+            <span class="scenario-card__cta" aria-hidden="true">
+              <span data-i18n="scenario_deepfake_cta">What to do</span>
+              <span class="scenario-card__cta-arrow">→</span>
+            </span>
+          </a>
+
+        </div><!-- /scenarios-grid -->
+
+      </div><!-- /container -->
+    </section><!-- /scenarios -->
+
+
+    <!-- =================================================
+         EMERGENCY SECTION
+         ================================================= -->
+    <section class="emergency-section section--sm"
+             id="emergency"
+             aria-labelledby="emergency-heading">
+      <div class="container">
+        <div class="emergency-section__inner">
+
+          <!-- Icon -->
+          <div class="emergency-section__icon" aria-hidden="true">🚨</div>
+
+          <!-- Content -->
+          <div class="emergency-section__content">
+            <h2 class="emergency-section__heading"
+                id="emergency-heading"
+                data-i18n="emergency_heading">
+              Already Lost Money?
+            </h2>
+
+            <p class="emergency-section__body"
+               data-i18n="emergency_body">
+              If you have already lost money or shared sensitive information with a scammer,
+              please report it immediately. Every minute counts.
+            </p>
+
+            <!-- Verified official information -->
+            <div class="emergency-section__note" role="note">
+              <span class="emergency-section__note-icon" aria-hidden="true">ℹ️</span>
+              <p data-i18n="emergency_info">
+                For immediate financial cyber fraud: call 1930. For broader cybercrime
+                reporting: visit cybercrime.gov.in. Also inform your bank or payment
+                provider right away.
+              </p>
+            </div>
+
+            <!-- Warning: do not call numbers from suspicious messages -->
+            <p class="emergency-section__warn" data-i18n="emergency_warn">
+              Do not call any number sent to you in a suspicious message.
+            </p>
+
+            <!-- Quick-action links -->
+            <div class="emergency-section__actions">
+              <a href="tel:1930"
+                 class="btn btn--danger"
+                 aria-label="Call 1930 — Cyber Crime Helpline">
+                📞 Call 1930
+              </a>
+              <a href="https://cybercrime.gov.in"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn btn--danger-outline"
+                 aria-label="Report on cybercrime.gov.in — opens in new tab">
+                🌐 cybercrime.gov.in ↗
+              </a>
+              <a href="resources.html"
+                 class="btn btn--secondary"
+                 data-i18n="emergency_cta">Go to Resources</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /emergency -->
+
+  </main><!-- /main-content -->
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand block -->
+        <div class="footer__brand-block">
+          <a href="index.html" class="footer__brand" aria-label="Cyber Saathi homepage">
+            <div class="footer__logo" aria-hidden="true">CS</div>
+            <span class="footer__site-name" data-i18n="site_name">Cyber Saathi</span>
+          </a>
+          <p class="footer__tagline" style="margin-top: var(--space-2);" data-i18n="footer_tagline">
+            Stop. Think. Verify. Report.
+          </p>
+          <p class="footer__text" style="margin-top: var(--space-3);" data-i18n="footer_note">
+            Cyber Saathi is a free, non-commercial public awareness resource.
+            We do not collect your data.
+          </p>
+        </div>
+
+        <!-- Bottom row — disclaimer + copyright -->
+        <div class="footer__bottom">
+          <p class="footer__disclaimer" data-i18n="footer_disclaimer">
+            This website provides general awareness information only. Always verify details
+            with official government sources.
+          </p>
+          <p class="footer__copyright" data-i18n="footer_copyright">
+            © 2024 Cyber Saathi
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       SCRIPTS — load i18n first, then main
+       ===================================================== -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
