@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- locale-base points one level up since this file is at root -->
+  <meta name="locale-base" content="locales/" />
+
+  <title>Cyber Saathi – Scenario Guide</title>
+  <meta name="description" content="Step-by-step guidance on what to do when you encounter suspicious digital activity." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"  content="article" />
+  <meta property="og:title" content="Cyber Saathi – Scenario Guide" />
+  <meta property="og:description" content="Clear, simple guidance for ordinary people on staying safe online." />
+  <meta property="og:locale" content="en_IN" />
+
+  <meta name="theme-color" content="#1a6b8a" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ACCESSIBILITY
+       ===================================================== -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="lang-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+  <div id="detail-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+
+  <!-- =====================================================
+       NAVBAR  (identical structure to index.html)
+       ===================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+
+        <a href="index.html" class="navbar__brand" aria-label="Cyber Saathi — go to homepage">
+          <div class="navbar__logo" aria-hidden="true">CS</div>
+          <div>
+            <div class="navbar__site-name" data-i18n="site_name">Cyber Saathi</div>
+            <div class="navbar__tagline" data-i18n="site_tagline">Stop. Think. Verify. Report.</div>
+          </div>
+        </a>
+
+        <nav class="navbar__nav" aria-label="Main navigation">
+          <ul class="navbar__nav-list" role="list">
+            <li><a href="index.html"      class="navbar__nav-link" data-i18n="nav_home">Home</a></li>
+            <li><a href="scenarios.html"  class="navbar__nav-link" data-i18n="nav_scenarios">Scenarios</a></li>
+            <li><a href="resources.html"  class="navbar__nav-link" data-i18n="nav_resources">Resources</a></li>
+            <li><a href="quiz.html"       class="navbar__nav-link" data-i18n="nav_quiz">Self-Check</a></li>
+            <li><a href="about.html"      class="navbar__nav-link" data-i18n="nav_about">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar__right">
+          <div class="lang-switcher" role="group" aria-label="Choose language">
+            <button class="lang-btn" data-lang="en" aria-pressed="true"  type="button" data-i18n="lang_en">English</button>
+            <button class="lang-btn" data-lang="mr" aria-pressed="false" type="button" data-i18n="lang_mr">मराठी</button>
+            <button class="lang-btn" data-lang="hi" aria-pressed="false" type="button" data-i18n="lang_hi">हिंदी</button>
+          </div>
+
+          <button class="navbar__hamburger"
+                  id="nav-hamburger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="nav-mobile-menu"
+                  data-i18n-aria="nav_menu_label">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="nav_menu_label">Open menu</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <nav id="nav-mobile-menu" class="navbar__mobile-menu" aria-label="Mobile navigation">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li><a href="index.html"     class="navbar__mobile-nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="scenarios.html" class="navbar__mobile-nav-link" data-i18n="nav_scenarios">Scenarios</a></li>
+        <li><a href="resources.html" class="navbar__mobile-nav-link" data-i18n="nav_resources">Resources</a></li>
+        <li><a href="quiz.html"      class="navbar__mobile-nav-link" data-i18n="nav_quiz">Self-Check</a></li>
+        <li><a href="about.html"     class="navbar__mobile-nav-link" data-i18n="nav_about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN CONTENT — filled by scenario-detail.js
+       ===================================================== -->
+  <main id="main-content">
+
+    <!-- Content placeholder shown while JS loads the scenario.
+         Hidden once content is injected. -->
+    <div id="detail-loading" aria-live="polite" aria-busy="true">
+      <div class="container" style="padding-block: var(--space-16); text-align: center;">
+        <p style="color: var(--color-text-muted); font-size: var(--font-size-md);">Loading…</p>
+      </div>
+    </div>
+
+    <!-- ===================================================
+         NOT-FOUND STATE — shown if id is missing/invalid
+         Hidden by default; JS shows it when needed.
+         =================================================== -->
+    <div id="detail-not-found" hidden>
+      <div class="container">
+        <div class="detail-not-found">
+          <div class="detail-not-found__icon" aria-hidden="true">🔍</div>
+          <h1 class="detail-not-found__heading" data-i18n="detail_not_found_heading">
+            Situation not found
+          </h1>
+          <p class="detail-not-found__body" data-i18n="detail_not_found_body">
+            We could not find the situation you were looking for.
+            Please go back and choose from the list.
+          </p>
+          <a href="index.html#scenarios" class="btn btn--primary" data-i18n="detail_not_found_cta">
+            Go back to all situations
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================
+         SCENARIO CONTENT — hidden until JS populates it
+         =================================================== -->
+    <div id="detail-content" hidden>
+
+      <!-- Back bar -->
+      <div class="detail-back-bar">
+        <div class="container">
+          <div class="detail-back-bar__inner">
+            <a href="index.html#scenarios"
+               class="detail-back-link"
+               id="detail-back-link"
+               data-i18n="detail_back">← Back to all situations</a>
+            <button class="detail-share-btn"
+                    id="detail-share-btn"
+                    type="button"
+                    data-i18n="detail_share">Share this page</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario hero -->
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <div class="container">
+          <div class="detail-hero__inner">
+            <div class="detail-hero__icon" id="detail-icon" aria-hidden="true"></div>
+            <h1 class="detail-hero__title" id="detail-title"></h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- Six content sections -->
+      <div class="detail-body">
+        <div class="container">
+          <div class="detail-body__inner">
+
+            <!-- Section 1: What happened? -->
+            <section class="detail-section detail-section--what-happened"
+                     aria-labelledby="heading-what-happened">
+              <div class="detail-section__header">
+                <span class="detail-section__icon" aria-hidden="true">📖</span>
+                <h2 class="detail-section__heading"
+                    id="heading-what-happened"
+                    data-i18n="detail_section_what_happened">What happened?</h2>
+              </div>
+              <div class="detail-section__body">
+                <p class="detail-section__paragraph" id="content-what-happened"></p>
+              </div>
+            </section>
+
+            <!-- Quick Help — most important actions, read in 20–30 seconds.
+                 Placed immediately after the brief "What happened?" summary.
+                 TTS button is attached here only. -->
+            <section class="detail-section detail-section--quick-help"
+                     aria-labelledby="heading-quick-help">
+              <div class="detail-section__header">
+                <span class="detail-section__icon" aria-hidden="true">⚡</span>
+                <h2 class="detail-section__heading"
+                    id="heading-quick-help"
+                    data-i18n="detail_section_quick_help">What should I do right now?</h2>
+              </div>
+              <div class="detail-section__body" id="tts-body-quick-help">
+                <p class="detail-section__intro"
+                   id="content-quick-help-intro"></p>
+                <ol class="detail-steps-list detail-steps-list--quick"
+                    id="content-quick-help-steps"
+                    role="list"></ol>
+                <!-- TTS Listen button injected here by initTTS() -->
+              </div>
+            </section>
+
+            <!-- Warning Signs accordion — closed by default -->
+            <section class="detail-accordion-section detail-accordion-section--warning"
+                     aria-labelledby="heading-warning-signs">
+              <div class="detail-accordion-section__header">
+                <span class="detail-accordion-section__icon" aria-hidden="true">⚠️</span>
+                <h2 class="detail-accordion-section__heading"
+                    id="heading-warning-signs"
+                    data-i18n="detail_section_warning_signs">Warning signs to watch for</h2>
+              </div>
+              <!-- Single accordion item wrapping all warning signs -->
+              <div class="detail-accordion" id="accordion-warning" role="list">
+                <!-- Items injected by renderWarningAccordion() -->
+              </div>
+            </section>
+
+            <!-- FAQ accordion — closed by default -->
+            <section class="detail-accordion-section detail-accordion-section--faq"
+                     aria-labelledby="heading-faq">
+              <div class="detail-accordion-section__header">
+                <span class="detail-accordion-section__icon" aria-hidden="true">💡</span>
+                <h2 class="detail-accordion-section__heading"
+                    id="heading-faq"
+                    data-i18n="detail_section_faq">More help — tap a question to read the answer</h2>
+              </div>
+              <div class="detail-accordion" id="accordion-faq" role="list">
+                <!-- Items injected by renderFaqAccordion() -->
+              </div>
+            </section>
+
+          </div><!-- /detail-body__inner -->
+        </div><!-- /container -->
+      </div><!-- /detail-body -->
+
+      <!-- Page-level disclaimer -->
+      <div class="detail-disclaimer">
+        <div class="container">
+          <p class="detail-disclaimer__text" data-i18n="detail_disclaimer">
+            This page provides general awareness information only.
+            Always verify with official government sources.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /#detail-content -->
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER  (identical structure to index.html)
+       ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand-block">
+          <a href="index.html" class="footer__brand" aria-label="Cyber Saathi homepage">
+            <div class="footer__logo" aria-hidden="true">CS</div>
+            <span class="footer__site-name" data-i18n="site_name">Cyber Saathi</span>
+          </a>
+          <p class="footer__tagline" style="margin-top: var(--space-2);" data-i18n="footer_tagline">
+            Stop. Think. Verify. Report.
+          </p>
+          <p class="footer__text" style="margin-top: var(--space-3);" data-i18n="footer_note">
+            Cyber Saathi is a free, non-commercial public awareness resource.
+            We do not collect your data.
+          </p>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__disclaimer" data-i18n="footer_disclaimer">
+            This website provides general awareness information only.
+            Always verify details with official government sources.
+          </p>
+          <p class="footer__copyright" data-i18n="footer_copyright">© 2024 Cyber Saathi</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       SCRIPTS
+       Load order: i18n → scenarios data → tts engine → detail page logic → shared main
+       ===================================================== -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/scenarios.js"></script>
+  <script src="assets/js/tts.js"></script>
+  <script>
+  /**
+   * Scenario Detail Page — inline script
+   *
+   * Responsibilities:
+   *   1. Read ?id= from URL.
+   *   2. Look up the scenario in window.SCENARIOS.
+   *   3. Show not-found state if missing.
+   *   4. Populate all six content sections from scenario data.
+   *   5. Re-render content on language change.
+   *   6. Wire up the Share button (Web Share API with clipboard fallback).
+   *   7. Update page <title> to reflect the scenario name.
+   */
+  (function () {
+
+    /* ----------------------------------------------------------
+       Helpers
+    ---------------------------------------------------------- */
+
+    /** Get current language from I18n (falls back to 'en'). */
+    function lang() {
+      return (window.I18n && I18n.getLang()) || 'en';
+    }
+
+    /** Safely get a localised string from a {en,hi,mr} object. */
+    function localise(obj) {
+      if (!obj) return '';
+      return obj[lang()] || obj['en'] || '';
+    }
+
+    /** Create a DOM element with optional class and text. */
+    function el(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls)  e.className   = cls;
+      if (text) e.textContent = text;
+      return e;
+    }
+
+    /* ----------------------------------------------------------
+       Read scenario id from URL
+    ---------------------------------------------------------- */
+    const params     = new URLSearchParams(window.location.search);
+    const scenarioId = (params.get('id') || '').trim().toLowerCase();
+
+    /* ----------------------------------------------------------
+       DOM references
+    ---------------------------------------------------------- */
+    const loadingEl    = document.getElementById('detail-loading');
+    const notFoundEl   = document.getElementById('detail-not-found');
+    const contentEl    = document.getElementById('detail-content');
+
+    const iconEl       = document.getElementById('detail-icon');
+    const titleEl      = document.getElementById('detail-title');
+
+    const whatHappenedEl  = document.getElementById('content-what-happened');
+    const quickHelpIntroEl= document.getElementById('content-quick-help-intro');
+    const quickHelpListEl = document.getElementById('content-quick-help-steps');
+    const warningAccordionEl = document.getElementById('accordion-warning');
+    const faqAccordionEl     = document.getElementById('accordion-faq');
+
+    const shareBtn     = document.getElementById('detail-share-btn');
+
+    /* ----------------------------------------------------------
+       Render helpers
+    ---------------------------------------------------------- */
+
+    /** Create a DOM element with optional class and text. */
+    /* el() already defined above */
+
+    /** Populate a <ul> with red-flag bullet items. */
+    function renderFlagsList(listEl, items) {
+      listEl.innerHTML = '';
+      items.forEach((text) => {
+        const li     = el('li', 'detail-flags-list__item');
+        const bullet = el('span', 'detail-flags-list__bullet');
+        bullet.setAttribute('aria-hidden', 'true');
+        bullet.textContent = '!';
+        const span   = el('span', '', text);
+        li.appendChild(bullet);
+        li.appendChild(span);
+        listEl.appendChild(li);
+      });
+    }
+
+    /** Populate an <ol> with numbered step items. */
+    function renderStepsList(listEl, items) {
+      listEl.innerHTML = '';
+      items.forEach((text, i) => {
+        const li   = el('li', 'detail-steps-list__item');
+        const num  = el('span', 'detail-steps-list__num');
+        num.setAttribute('aria-hidden', 'true');
+        num.textContent = String(i + 1);
+        const span = el('span', '', text);
+        li.appendChild(num);
+        li.appendChild(span);
+        listEl.appendChild(li);
+      });
+    }
+
+    /** Populate a <ul> with avoid (do-not) items. */
+    function renderAvoidList(listEl, items) {
+      listEl.innerHTML = '';
+      items.forEach(text => {
+        const li   = el('li', 'detail-avoid-list__item');
+        const icon = el('span', 'detail-avoid-list__icon');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.textContent = '✕';
+        const span = el('span', '', text);
+        li.appendChild(icon);
+        li.appendChild(span);
+        listEl.appendChild(li);
+      });
+    }
+
+    /** Populate report/help link cards into a <ul>. */
+    function renderReportLinks(listEl, links) {
+      listEl.innerHTML = '';
+      links.forEach(link => {
+        const li = document.createElement('li');
+        const label = localise(link.label);
+        const desc  = localise(link.description);
+
+        if (link.is_instruction || !link.url) {
+          const card = el('div', 'detail-report-card detail-report-card--instruction');
+          card.setAttribute('role', 'note');
+          const iconSpan = el('span', 'detail-report-card__icon');
+          iconSpan.setAttribute('aria-hidden', 'true');
+          iconSpan.textContent = 'ℹ️';
+          const content = el('div', 'detail-report-card__content');
+          content.appendChild(el('span', 'detail-report-card__label', label));
+          content.appendChild(el('p',    'detail-report-card__desc',  desc));
+          card.appendChild(iconSpan);
+          card.appendChild(content);
+          li.appendChild(card);
+        } else {
+          const card = el('a', 'detail-report-card');
+          card.href  = link.url;
+          card.setAttribute('aria-label', label);
+          if (link.url.startsWith('http')) {
+            card.target = '_blank';
+            card.rel    = 'noopener noreferrer';
+          }
+          const iconSpan = el('span', 'detail-report-card__icon');
+          iconSpan.setAttribute('aria-hidden', 'true');
+          iconSpan.textContent = link.url.startsWith('tel') ? '📞' : '🌐';
+          const content = el('div', 'detail-report-card__content');
+          content.appendChild(el('span', 'detail-report-card__label', label));
+          content.appendChild(el('p',    'detail-report-card__desc',  desc));
+          const arrow = el('span', 'detail-report-card__arrow');
+          arrow.setAttribute('aria-hidden', 'true');
+          arrow.textContent = link.url.startsWith('tel') ? '→' : '↗';
+          card.appendChild(iconSpan);
+          card.appendChild(content);
+          card.appendChild(arrow);
+          li.appendChild(card);
+        }
+        listEl.appendChild(li);
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Accordion renderers
+    ---------------------------------------------------------- */
+
+    /**
+     * renderWarningAccordion(containerEl, items, lang)
+     * Renders one accordion item per warning sign group — in this
+     * version all signs go into a single expandable item so the
+     * list stays compact. Each item uses an amber flag bullet.
+     * The accordion container is cleared and rebuilt on every call
+     * so language switches work correctly.
+     */
+    function renderWarningAccordion(containerEl, items) {
+      if (!containerEl) return;
+      containerEl.innerHTML = '';
+
+      /* One accordion item wrapping the full flags list */
+      const itemId    = 'acc-warning-all';
+      const triggerId = `${itemId}-trigger`;
+      const panelId   = `${itemId}-panel`;
+
+      const item = el('div', 'detail-accordion__item');
+      item.setAttribute('role', 'listitem');
+
+      /* Trigger button */
+      const trigger = el('button', 'detail-accordion__trigger');
+      trigger.type  = 'button';
+      trigger.id    = triggerId;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-controls', panelId);
+      trigger.setAttribute('aria-label',
+        (window.I18n && I18n.t('detail_expand')) || 'Tap to expand');
+
+      const triggerText = el('span', '', (window.I18n && I18n.t('detail_red_flags_intro'))
+                                        || 'These are common signs that a message may be a scam');
+      const chevron = el('span', 'detail-accordion__chevron');
+      chevron.setAttribute('aria-hidden', 'true');
+      chevron.textContent = '▼';
+      trigger.appendChild(triggerText);
+      trigger.appendChild(chevron);
+
+      /* Panel */
+      const panel = el('div', 'detail-accordion__panel');
+      panel.id = panelId;
+      panel.setAttribute('role', 'region');
+      panel.setAttribute('aria-labelledby', triggerId);
+      panel.setAttribute('hidden', '');
+
+      const list = el('ul', 'detail-flags-list');
+      list.setAttribute('role', 'list');
+      renderFlagsList(list, items);
+      panel.appendChild(list);
+
+      item.appendChild(trigger);
+      item.appendChild(panel);
+      containerEl.appendChild(item);
+    }
+
+    /**
+     * renderFaqAccordion(containerEl, faqItems, reportLinks, langCode)
+     * Renders one accordion item per FAQ entry. Content type decides
+     * which render helper is used for the panel body:
+     *   "steps"  → renderStepsList()
+     *   "avoid"  → renderAvoidList()
+     *   "para"   → plain paragraph
+     *   "report" → verification banner + renderReportLinks()
+     */
+    function renderFaqAccordion(containerEl, faqItems, reportLinks) {
+      if (!containerEl || !faqItems) return;
+      containerEl.innerHTML = '';
+      const l = lang();
+
+      faqItems.forEach((item, idx) => {
+        const itemId    = `acc-faq-${item.id || idx}`;
+        const triggerId = `${itemId}-trigger`;
+        const panelId   = `${itemId}-panel`;
+
+        const wrapper = el('div', 'detail-accordion__item');
+        wrapper.setAttribute('role', 'listitem');
+
+        /* Trigger */
+        const trigger = el('button', 'detail-accordion__trigger');
+        trigger.type  = 'button';
+        trigger.id    = triggerId;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-controls', panelId);
+
+        const qText = localise(item.q);
+        trigger.setAttribute('aria-label', qText);
+
+        const triggerText = el('span', '', qText);
+        const chevron = el('span', 'detail-accordion__chevron');
+        chevron.setAttribute('aria-hidden', 'true');
+        chevron.textContent = '▼';
+        trigger.appendChild(triggerText);
+        trigger.appendChild(chevron);
+
+        /* Panel */
+        const panelCls = item.type === 'report'
+          ? 'detail-accordion__panel detail-accordion__panel--report'
+          : 'detail-accordion__panel';
+        const panel = el('div', panelCls);
+        panel.id = panelId;
+        panel.setAttribute('role', 'region');
+        panel.setAttribute('aria-labelledby', triggerId);
+        panel.setAttribute('hidden', '');
+
+        /* Populate panel body by type */
+        if (item.type === 'steps') {
+          const list = el('ol', 'detail-steps-list');
+          list.setAttribute('role', 'list');
+          renderStepsList(list, item.a[l] || item.a['en']);
+          panel.appendChild(list);
+
+        } else if (item.type === 'avoid') {
+          const list = el('ul', 'detail-avoid-list');
+          list.setAttribute('role', 'list');
+          renderAvoidList(list, item.a[l] || item.a['en']);
+          panel.appendChild(list);
+
+        } else if (item.type === 'para') {
+          const p = el('p', '', localise(item.a));
+          panel.appendChild(p);
+
+        } else if (item.type === 'report') {
+          /* Verification banner */
+          const banner = el('div', 'detail-verification-banner');
+          banner.setAttribute('role', 'note');
+          const bannerIcon = el('span', 'detail-verification-banner__icon');
+          bannerIcon.setAttribute('aria-hidden', 'true');
+          bannerIcon.textContent = '⚠️';
+          const bannerText = el('p', '',
+            (window.I18n && I18n.t('detail_verification_note'))
+            || 'Helpline numbers and links below are pending official verification.');
+          banner.appendChild(bannerIcon);
+          banner.appendChild(bannerText);
+          panel.appendChild(banner);
+
+          /* Report link cards */
+          const list = el('ul', 'detail-report-list');
+          list.setAttribute('role', 'list');
+          renderReportLinks(list, reportLinks);
+          panel.appendChild(list);
+        }
+
+        wrapper.appendChild(trigger);
+        wrapper.appendChild(panel);
+        containerEl.appendChild(wrapper);
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Main render — called on load and on every lang change
+    ---------------------------------------------------------- */
+    function renderScenario(scenario) {
+      const l = lang();
+
+      /* Icon and title */
+      iconEl.textContent  = scenario.icon;
+      titleEl.textContent = localise(scenario.title);
+
+      /* Apply category accent colour to the icon box */
+      const accentMap = {
+        message:  '#1a6b8a', call:    '#2a72b5', video:   '#6d5acd',
+        email:    '#1a8faa', link:    '#d48b00', upi:     '#1a9068',
+        courier:  '#b05c15', social:  '#c0416a', deepfake:'#5a4fc0'
+      };
+      const accent = accentMap[scenario.category] || '#1a6b8a';
+      iconEl.style.border = `3px solid ${accent}`;
+
+      /* Section 1 — What happened (short 3-sentence version) */
+      whatHappenedEl.textContent = localise(scenario.what_happened);
+
+      /* Quick Help — intro sentence + 4 steps */
+      if (scenario.quick_help) {
+        if (quickHelpIntroEl) {
+          quickHelpIntroEl.textContent = localise(scenario.quick_help.intro);
+        }
+        if (quickHelpListEl) {
+          renderStepsList(
+            quickHelpListEl,
+            scenario.quick_help.steps[l] || scenario.quick_help.steps['en']
+          );
+        }
+      }
+
+      /* Warning signs accordion */
+      renderWarningAccordion(
+        warningAccordionEl,
+        scenario.red_flags[l] || scenario.red_flags['en']
+      );
+
+      /* FAQ accordion */
+      renderFaqAccordion(
+        faqAccordionEl,
+        scenario.faq,
+        scenario.report_links
+      );
+
+      /* Update page <title> */
+      const siteName = (window.I18n && I18n.t('site_name')) || 'Cyber Saathi';
+      document.title = `${siteName} – ${localise(scenario.title)}`;
+    }
+
+    /* ----------------------------------------------------------
+       TTS — Listen button on the Quick Help section only.
+       Reading the short 4-step list aloud is the primary use
+       case. Detailed sections are text-only.
+    ---------------------------------------------------------- */
+
+    /**
+     * initTTS(scenario)
+     * Attaches a single TTS Listen button to the Quick Help section.
+     * The button is created once and re-used across language changes
+     * via btn._ttsRefresh(newLang).
+     */
+    function initTTS(scenario) {
+      if (!window.TTS) return;
+
+      const contentNode = document.getElementById('content-quick-help-steps');
+      const parentBody  = document.getElementById('tts-body-quick-help');
+      if (!contentNode || !parentBody) return;
+
+      /* Build wrapper + button */
+      const wrap = document.createElement('div');
+      wrap.className = 'tts-btn-wrap';
+
+      const btn = document.createElement('button');
+      btn.type      = 'button';
+      btn.className = 'tts-btn';
+      btn.textContent = (window.I18n && I18n.t('tts_listen')) || '🔊 Listen';
+
+      wrap.appendChild(btn);
+      parentBody.appendChild(wrap);
+
+      /* getTextFn — reads live DOM text at click time */
+      function getTextFn() {
+        /* Prepend the intro sentence so the full Quick Help reads naturally */
+        const intro = quickHelpIntroEl ? quickHelpIntroEl.textContent.trim() : '';
+        const steps = contentNode.textContent.replace(/\s+/g, ' ').trim();
+        return intro ? `${intro} ${steps}` : steps;
+      }
+
+      TTS.attachButton(btn, getTextFn, 'quick-help');
+
+      /* Set unavailable notice text (shown when speechSynthesis absent) */
+      if (btn._ttsNotice) {
+        btn._ttsNotice.textContent =
+          (window.I18n && I18n.t('tts_unavailable'))
+          || 'Audio is not available on this device. You can read the steps below.';
+      }
+
+      /* Store the button reference for the lang-change handler */
+      scenario._ttsBtn = btn;
+    }
+
+    /* ----------------------------------------------------------
+       Share button
+    ---------------------------------------------------------- */
+    function initShareButton(scenario) {
+      if (!shareBtn) return;
+
+      shareBtn.addEventListener('click', async () => {
+        const l         = lang();
+        const shareData = {
+          title: localise(scenario.title),
+          text:  `Cyber Saathi — ${localise(scenario.title)}`,
+          url:   window.location.href
+        };
+
+        /* Use native Web Share API if available (most Android & iOS) */
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (e) {
+            /* User cancelled — do nothing */
+            if (e.name === 'AbortError') return;
+          }
+        }
+
+        /* Fallback — copy URL to clipboard */
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          const liveRegion = document.getElementById('detail-announcement');
+          if (liveRegion) {
+            const msg = (window.I18n && I18n.t('detail_share_copied')) || 'Link copied!';
+            liveRegion.textContent = msg;
+            setTimeout(() => { liveRegion.textContent = ''; }, 3000);
+          }
+          /* Brief visual feedback on the button */
+          const orig = shareBtn.textContent;
+          shareBtn.textContent = (window.I18n && I18n.t('detail_share_copied')) || 'Link copied!';
+          setTimeout(() => {
+            if (window.I18n) {
+              shareBtn.textContent = I18n.t('detail_share') || orig;
+            } else {
+              shareBtn.textContent = orig;
+            }
+          }, 2000);
+        } catch (e) {
+          /* Clipboard not available — silent fail */
+        }
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Accordion click handling
+       Uses event delegation on the two container elements so
+       it works correctly after every language-change re-render.
+       Called once after initial render and once after each
+       renderScenario() call triggered by I18n.onChange().
+    ---------------------------------------------------------- */
+    function initAccordions() {
+      const containers = [
+        document.getElementById('accordion-warning'),
+        document.getElementById('accordion-faq')
+      ];
+
+      containers.forEach(container => {
+        if (!container) return;
+
+        /* Remove any previously attached listener to avoid duplicates */
+        if (container._accordionHandler) {
+          container.removeEventListener('click', container._accordionHandler);
+        }
+
+        container._accordionHandler = function (e) {
+          const trigger = e.target.closest('.detail-accordion__trigger');
+          if (!trigger) return;
+
+          const panelId = trigger.getAttribute('aria-controls');
+          const panel   = panelId ? document.getElementById(panelId) : null;
+          if (!panel) return;
+
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+          if (isOpen) {
+            /* Close */
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.setAttribute('aria-label',
+              (window.I18n && I18n.t('detail_expand')) || 'Tap to expand');
+            panel.setAttribute('hidden', '');
+          } else {
+            /* Open */
+            trigger.setAttribute('aria-expanded', 'true');
+            trigger.setAttribute('aria-label',
+              (window.I18n && I18n.t('detail_collapse')) || 'Tap to collapse');
+            panel.removeAttribute('hidden');
+          }
+        };
+
+        container.addEventListener('click', container._accordionHandler);
+      });
+    }
+
+    /* ----------------------------------------------------------
+       Boot
+    ---------------------------------------------------------- */
+    async function boot() {
+      /* Wait for I18n to initialise (it's loaded before this script) */
+      await I18n.init();
+
+      const scenario = window.SCENARIOS && window.SCENARIOS[scenarioId];
+
+      /* Hide loading indicator */
+      loadingEl.setAttribute('hidden', '');
+      loadingEl.removeAttribute('aria-busy');
+
+      if (!scenario) {
+        /* Show not-found state */
+        notFoundEl.removeAttribute('hidden');
+        document.title = (I18n.t('site_name') || 'Cyber Saathi') + ' – ' +
+                         (I18n.t('detail_not_found_heading') || 'Not found');
+        return;
+      }
+
+      /* Show content and render */
+      contentEl.removeAttribute('hidden');
+      renderScenario(scenario);
+      initShareButton(scenario);
+      initTTS(scenario);
+      initAccordions();
+
+      /* Re-render content text on every language change */
+      I18n.onChange(() => {
+        /* Stop any running speech before re-rendering */
+        if (window.TTS) TTS.stopAll();
+
+        renderScenario(scenario);
+        /* Re-wire accordion click handlers on newly rebuilt DOM */
+        initAccordions();
+
+        /* Refresh TTS button visibility for the new language */
+        if (scenario._ttsBtn && scenario._ttsBtn._ttsRefresh) {
+          scenario._ttsBtn._ttsRefresh(
+            (window.I18n && I18n.getLang()) || 'en'
+          );
+        }
+
+        /* Also update share button label */
+        if (shareBtn) {
+          shareBtn.textContent = I18n.t('detail_share') || 'Share this page';
+        }
+      });
+    }
+
+    /* Run after DOM is ready */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+
+  })();
+  </script>
+
+  <!-- Shared nav/hamburger/lang-switcher behaviour -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

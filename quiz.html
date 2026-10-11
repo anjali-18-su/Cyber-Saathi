@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Base path hint for i18n.js locale loader -->
+  <meta name="locale-base" content="locales/" />
+
+  <!-- Primary meta -->
+  <title>Cyber Safety Self-Check Quiz – Cyber Saathi</title>
+  <meta name="description"
+    content="Test your cyber safety knowledge with 10 questions covering scams, phishing, UPI fraud, deepfakes and more. Free, no registration required." />
+  <meta name="keywords"
+    content="cyber safety quiz, cybersecurity quiz India, online safety test, scam awareness" />
+  <meta name="author" content="Cyber Saathi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Cyber Safety Self-Check Quiz – Cyber Saathi" />
+  <meta property="og:description" content="10 questions. No registration. No data collected. Test your cyber safety knowledge." />
+  <meta property="og:locale"      content="en_IN" />
+
+  <!-- Theme colour -->
+  <meta name="theme-color" content="#1a6b8a" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ACCESSIBILITY: Skip navigation link
+       ===================================================== -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ARIA live regions -->
+  <div id="lang-announcement"
+       class="sr-only"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true"></div>
+
+
+  <!-- =====================================================
+       NAVBAR  (identical structure to index.html)
+       ===================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="navbar__inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar__brand" aria-label="Cyber Saathi — go to homepage">
+          <div class="navbar__logo" aria-hidden="true">CS</div>
+          <div>
+            <div class="navbar__site-name" data-i18n="site_name">Cyber Saathi</div>
+            <div class="navbar__tagline" data-i18n="site_tagline">Stop. Think. Verify. Report.</div>
+          </div>
+        </a>
+
+        <!-- Desktop navigation -->
+        <nav class="navbar__nav" aria-label="Main navigation">
+          <ul class="navbar__nav-list" role="list">
+            <li>
+              <a href="index.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_home">Home</a>
+            </li>
+            <li>
+              <a href="scenarios.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_scenarios">Scenarios</a>
+            </li>
+            <li>
+              <a href="resources.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_resources">Resources</a>
+            </li>
+            <li>
+              <a href="quiz.html"
+                 class="navbar__nav-link"
+                 aria-current="page"
+                 data-i18n="nav_quiz">Self-Check</a>
+            </li>
+            <li>
+              <a href="about.html"
+                 class="navbar__nav-link"
+                 data-i18n="nav_about">About</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right: language switcher + hamburger -->
+        <div class="navbar__right">
+
+          <!-- Language switcher -->
+          <div class="lang-switcher" role="group" aria-label="Choose language">
+            <button class="lang-btn"
+                    data-lang="en"
+                    aria-pressed="true"
+                    type="button"
+                    data-i18n="lang_en">English</button>
+            <button class="lang-btn"
+                    data-lang="mr"
+                    aria-pressed="false"
+                    type="button"
+                    data-i18n="lang_mr">मराठी</button>
+            <button class="lang-btn"
+                    data-lang="hi"
+                    aria-pressed="false"
+                    type="button"
+                    data-i18n="lang_hi">हिंदी</button>
+          </div>
+
+          <!-- Hamburger (mobile only) -->
+          <button class="navbar__hamburger"
+                  id="nav-hamburger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="nav-mobile-menu"
+                  data-i18n-aria="nav_menu_label">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="nav_menu_label">Open menu</span>
+          </button>
+
+        </div><!-- /navbar__right -->
+
+      </div><!-- /navbar__inner -->
+    </div><!-- /container -->
+
+    <!-- Mobile menu drawer -->
+    <nav id="nav-mobile-menu"
+         class="navbar__mobile-menu"
+         aria-label="Mobile navigation">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li>
+          <a href="index.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_home">Home</a>
+        </li>
+        <li>
+          <a href="scenarios.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_scenarios">Scenarios</a>
+        </li>
+        <li>
+          <a href="resources.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_resources">Resources</a>
+        </li>
+        <li>
+          <a href="quiz.html"
+             class="navbar__mobile-nav-link"
+             aria-current="page"
+             data-i18n="nav_quiz">Self-Check</a>
+        </li>
+        <li>
+          <a href="about.html"
+             class="navbar__mobile-nav-link"
+             data-i18n="nav_about">About</a>
+        </li>
+      </ul>
+    </nav>
+
+  </header><!-- /navbar -->
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main id="main-content">
+    <div class="quiz-page">
+      <div class="container">
+
+        <!-- ── Start screen ─────────────────────────────── -->
+        <div id="quiz-start-screen" class="quiz-screen">
+          <div class="quiz-start__icon" aria-hidden="true">🛡️</div>
+          <h1 data-i18n="quiz_heading">Test Your Cyber Safety Knowledge</h1>
+          <p data-i18n="quiz_subheading">10 questions. No registration. No data collected.</p>
+          <button id="quiz-start-btn" class="btn btn--primary" type="button" data-i18n="quiz_start">Start Quiz</button>
+          <a href="index.html" class="btn btn--secondary" data-i18n="quiz_back_home">Back to Home</a>
+        </div>
+
+        <!-- ── Question screen ──────────────────────────── -->
+        <div id="quiz-question-screen" class="quiz-screen" hidden>
+          <div class="quiz-progress" aria-live="polite">
+            <span id="quiz-q-num" data-i18n="quiz_question_label">Question</span>
+            <span id="quiz-q-of"> </span>
+            <div class="quiz-progress__bar"
+                 role="progressbar"
+                 aria-valuemin="0"
+                 aria-valuemax="10"
+                 aria-valuenow="0">
+              <div class="quiz-progress__fill" id="quiz-progress-fill"></div>
+            </div>
+          </div>
+          <div class="quiz-card">
+            <p id="quiz-question-text" class="quiz-question"></p>
+            <div id="quiz-options" class="quiz-options" role="list"></div>
+            <div id="quiz-feedback" class="quiz-feedback" hidden aria-live="assertive">
+              <p id="quiz-feedback-label"></p>
+              <p id="quiz-feedback-explanation"></p>
+            </div>
+            <button id="quiz-next-btn"
+                    class="btn btn--primary"
+                    type="button"
+                    hidden
+                    data-i18n="quiz_next">Next Question</button>
+          </div>
+        </div>
+
+        <!-- ── Result screen ────────────────────────────── -->
+        <div id="quiz-result-screen" class="quiz-screen" hidden>
+          <div class="quiz-result__icon" id="quiz-result-icon" aria-hidden="true">🎯</div>
+          <h2 data-i18n="quiz_result_heading">Your Result</h2>
+          <p class="quiz-result__score">
+            <span data-i18n="quiz_score_label">You scored</span>
+            <strong id="quiz-score-num"></strong>
+            <span data-i18n="quiz_score_out_of">out of 10</span>
+          </p>
+          <p id="quiz-result-message" class="quiz-result__message"></p>
+          <div class="quiz-result__actions">
+            <button id="quiz-retry-btn" class="btn btn--primary" type="button" data-i18n="quiz_retry">Try Again</button>
+            <a href="index.html" class="btn btn--secondary" data-i18n="quiz_back_home">Back to Home</a>
+          </div>
+          <p class="quiz-disclaimer" data-i18n="quiz_disclaimer">This quiz is for awareness only.</p>
+        </div>
+
+      </div>
+    </div>
+  </main><!-- /main-content -->
+
+
+  <!-- =====================================================
+       FOOTER  (identical to index.html)
+       ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand block -->
+        <div class="footer__brand-block">
+          <a href="index.html" class="footer__brand" aria-label="Cyber Saathi homepage">
+            <div class="footer__logo" aria-hidden="true">CS</div>
+            <span class="footer__site-name" data-i18n="site_name">Cyber Saathi</span>
+          </a>
+          <p class="footer__tagline" style="margin-top: var(--space-2);" data-i18n="footer_tagline">
+            Stop. Think. Verify. Report.
+          </p>
+          <p class="footer__text" style="margin-top: var(--space-3);" data-i18n="footer_note">
+            Cyber Saathi is a free, non-commercial public awareness resource.
+            We do not collect your data.
+          </p>
+        </div>
+
+        <!-- Bottom row -->
+        <div class="footer__bottom">
+          <p class="footer__disclaimer" data-i18n="footer_disclaimer">
+            This website provides general awareness information only. Always verify details
+            with official government sources.
+          </p>
+          <p class="footer__copyright" data-i18n="footer_copyright">
+            © 2024 Cyber Saathi
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       SCRIPTS — i18n first, then quiz, then main
+       ===================================================== -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
