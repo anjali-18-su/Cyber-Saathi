@@ -1,0 +1,290 @@
+/* ============================================================
+   responsive.css — Mobile-first breakpoints
+   Cyber Saathi
+
+   Breakpoints:
+     xs  — 0–479px    (small phones, default)
+     sm  — 480px+     (large phones / landscape)
+     md  — 768px+     (tablets)
+     lg  — 1024px+    (laptops / desktops)
+     xl  — 1200px+    (large screens)
+   ============================================================ */
+
+/* ============================================================
+   BASE (xs / mobile — no media query needed, written in
+   components.css as default single-column layout)
+   ============================================================ */
+@media (max-width: 479px) {
+
+  :root {
+    --container-pad-x: var(--space-2);
+  }
+
+  .navbar__inner {
+    gap: var(--space-1);
+  }
+
+  .navbar__brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: var(--space-2);
+  }
+
+  .navbar__brand > div:last-child {
+    min-width: 0;
+  }
+
+  .navbar__logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar__site-name {
+    font-size: var(--font-size-md);
+    white-space: nowrap;
+  }
+
+  .navbar__right {
+    flex: 0 0 auto;
+    gap: var(--space-1);
+  }
+
+  .lang-switcher {
+    flex: 0 0 auto;
+    gap: 0;
+    padding: 2px;
+  }
+
+  .lang-btn {
+    padding-inline: 6px;
+  }
+}
+
+@media (max-width: 359px) {
+
+  .navbar__brand {
+    gap: 6px;
+  }
+
+  .navbar__logo {
+    width: 26px;
+    height: 26px;
+    font-size: var(--font-size-base);
+  }
+
+  .navbar__site-name {
+    font-size: 14px;
+  }
+
+  .lang-btn {
+    padding-inline: 2px;
+  }
+}
+
+/* ============================================================
+   sm — 480px and above
+   ============================================================ */
+@media (min-width: 480px) {
+
+  :root {
+    --container-pad-x: var(--space-5);
+  }
+
+  /* Hero */
+  .hero {
+    padding-block: var(--space-16) var(--space-20);
+  }
+
+  .hero__heading {
+    font-size: calc(var(--font-size-3xl) * 1.05);
+  }
+
+  /* Scenario grid — 2 columns on large phones */
+  .scenarios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Emergency section — put icon and content side by side */
+  .emergency-section__inner {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   md — 768px and above (tablets)
+   ============================================================ */
+@media (min-width: 768px) {
+
+  :root {
+    --container-pad-x: var(--space-8);
+  }
+
+  /* Navbar — show tagline */
+  .navbar__tagline {
+    display: block;
+  }
+
+  /* Nav links still hidden; hamburger visible — shown at lg */
+
+  /* Hero */
+  .hero {
+    padding-block: var(--space-20);
+  }
+
+  .hero__heading {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Hero actions stack → row */
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--space-4);
+  }
+
+  .hero .btn {
+    min-width: 200px;
+  }
+
+  /* Scenario grid — 3 columns on tablets */
+  .scenarios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Section heading larger */
+  .section-header__heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Footer — row layout */
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+
+  .footer__brand-block {
+    max-width: 320px;
+  }
+
+  .footer__bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+  }
+}
+
+/* ============================================================
+   lg — 1024px and above (laptops / desktops)
+   ============================================================ */
+@media (min-width: 1024px) {
+
+  :root {
+    --container-pad-x: var(--space-10);
+  }
+
+  /* Navbar — show full nav, hide hamburger */
+  .navbar__nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .navbar__hamburger {
+    display: none;
+  }
+
+  .navbar__mobile-menu {
+    display: none !important;
+  }
+
+  /* Hero */
+  .hero {
+    padding-block: var(--space-20) calc(var(--space-20) * 1.2);
+  }
+
+  .hero__heading {
+    font-size: calc(var(--font-size-3xl) * 1.2);  /* ~43px */
+  }
+
+  .hero__body {
+    font-size: var(--font-size-md);
+  }
+
+  /* Scenario grid — keep 3 wide, auto fills */
+  .scenarios-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Scenario card hover lift */
+  .scenario-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ============================================================
+   xl — 1200px and above (large screens)
+   ============================================================ */
+@media (min-width: 1200px) {
+
+  /* Scenario grid — up to 3 columns (stay readable) */
+  .scenarios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero__heading {
+    font-size: calc(var(--font-size-3xl) * 1.3);  /* ~47px */
+  }
+}
+
+/* ============================================================
+   Print styles — basic readability
+   ============================================================ */
+@media print {
+  .navbar,
+  .navbar__hamburger,
+  .lang-switcher,
+  .hero__actions,
+  .footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #555;
+  }
+}
+
+/* ============================================================
+   Reduced-motion — respect user OS preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
